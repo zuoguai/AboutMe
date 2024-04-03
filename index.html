@@ -3,11 +3,10 @@
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
-<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
-.mac-os-11 { --title-bar-height: 28px; }
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -23,6 +22,8 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
@@ -50,7 +51,7 @@ sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inh
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
 figure > table { margin: 0px; }
-thead, tr { break-inside: avoid; break-after: auto; }
+tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
 table.md-table td { min-width: 32px; }
@@ -72,7 +73,6 @@ div.hr:focus { cursor: none; }
 #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
 .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
 .CodeMirror-line, twitterwidget { break-inside: avoid; }
-svg { break-inside: avoid; }
 .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
 .footnotes + .footnotes { margin-top: 0px; }
 .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
@@ -87,14 +87,12 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
-  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
-  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -132,7 +130,6 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 }
 a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
 .footnote-line a:not(.reversefootnote) { color: inherit; }
-.reversefootnote { font-family: ui-monospace, sans-serif; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 code, pre, samp, tt { font-family: var(--monospace); }
@@ -163,7 +160,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-fences-advanced:not(.md-focus) { background: inherit; }
 .typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
 .typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
 .typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
 @media screen and (max-width: 1024px) {
   .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
@@ -171,7 +168,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -202,606 +199,306 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 .md-inline-math-container mjx-container { zoom: 0.95; }
-mjx-container { break-inside: avoid; }
-.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
-.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
-.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
-.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
-.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
-.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
-.md-alert-text-note { color: rgb(9, 105, 218); }
-.md-alert-text-important { color: rgb(130, 80, 223); }
-.md-alert-text-warning { color: rgb(154, 103, 0); }
-.md-alert-text-tip { color: rgb(31, 136, 61); }
-.md-alert-text-caution { color: rgb(207, 34, 46); }
-.md-alert-text { font-size: 0.9rem; font-weight: 700; }
-.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
-.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
 
-
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-/* open-sans-regular - latin-ext_latin */
-
-/* open-sans-italic - latin-ext_latin */
-
-/* open-sans-700 - latin-ext_latin */
-
-/* open-sans-700italic - latin-ext_latin */
-
-:root {
-    --title-color: #8064a9;
-    --text-color: #444444;
-    --light-text-color: #666666;
-    --lighter-text-color: #888888;
-    --link-color: #2aa899;
-    --code-color: #745fb5;
-    --shadow-color: #eee;
-    --border-quote: rgba(116, 95, 181, 0.2);
-    --border-quote-grey: #c8c8c8;
-    --border: #e7e7e7;
-    --link-bottom: #bbb;
-    --shadow: 3px 3px 10px var(--shadow-color);
-    --inline-code-bg: #f4f2f9;
-    --header-weight: normal;
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: var(var(--light-text-color));
-    --active-file-text-color: var(--title-color);
-    --active-file-bg-color: var(--shadow-color);
-    --item-hover-bg-color: var(--shadow-color);
-    --active-file-border-color: var(var(--title-color));
-    --base-font: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --title-font: "EB Garamond", "Source Sans Pro", serif;
-    --monospace: Courier, Monospace !important;
-}
-
-
-/* 打印 */
-
-@media print {
-    html {
-        font-size: 0.9rem;
-    }
-    table,
-    pre {
-        page-break-inside: avoid;
-    }
-    pre {
-        word-wrap: break-word;
-    }
-    #write {
-        max-width: 100%;
-    }
-    @page {
-        size: A3;
-        /* PDF output size */
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
 
 html {
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-rendering: optimizelegibility;
-    -webkit-font-smoothing: initial;
+	font-size: 19px;
 }
 
+html, body {
+	margin: auto;
+	background: #fefefe;
+	-webkit-font-smoothing: antialiased;
+}
 body {
-    color: var(--text-color);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
-    letter-spacing: 0;
-    overflow-x: hidden;
+	font-family: "Vollkorn", Palatino, Times;
+	color: #333;
+	line-height: 1.4;
+	text-align: justify;
 }
-
-
-/* 页边距 和 页面大小 */
 
 #write {
-    font-family: var(--base-font);
-    /* max-width: 914px; */
-    margin: 0 auto;
-    padding: 1rem 4rem;
-    padding-bottom: 100px;
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 2em;
+	line-height: 1.53;
+	padding-top: 40px;
 }
 
-#write p {
-    line-height: 1.6rem;
-    word-spacing: 0.05rem;
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
 }
 
-body>*:first-child {
-    margin-top: 0 !important;
+@media print {
+	html {
+		font-size: 13px;
+	}
 }
 
-body>*:last-child {
-    margin-bottom: 0 !important;
-}
+/* Typography
+-------------------------------------------------------- */
 
-
-/* Link 链接 */
-
-a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-#write a {
-    border-bottom: 1px solid var(--link-bottom);
-}
-
-.md-content {
-    color: var(--light-text-color);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-weight: var(--header-weight);
-    line-height: 1.3;
-    cursor: text;
-    color: var(--title-color);
-    font-family: var(--title-font);
+#write>h1:first-child,
+h1 {
+	margin-top: 1.6em;
+	font-weight: normal;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-    line-height: 1.5;
-}
-
-h1:after {
-    content: "";
-    display: block;
-    margin: 0.2rem auto 0;
-    width: 6rem;
-    height: 2px;
-    border-bottom: 2px solid var(--title-color);
+	font-size:3em;
 }
 
 h2 {
-    padding-left: 0.4em;
-    border-left: 0.4em solid var(--title-color);
-    border-bottom: 1px solid var(--title-color);
+	margin-top:2em;
+	font-weight: normal;
 }
 
-h1 tt,
-h1 code {
-    font-size: inherit;
+h3 {
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 3em;
 }
-h2 tt,
-h2 code {
-    font-size: inherit;
+
+h1, 
+h2, 
+h3{
+	text-align: center;
 }
-h3 tt,
-h3 code {
-    font-size: inherit;
+
+h2:after{
+	border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 1px;
 }
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
+
+h1+h2, h2+h3 {
+	margin-top: 0.83em;
 }
 
 p,
-blockquote,
-ul,
-ol,
-dl,
-table {
-    margin: 0.8em 0;
+.mathjax-block {
+	margin-top: 0;
+	-webkit-hypens: auto;
+	-moz-hypens: auto;
+	hyphens: auto;
 }
-
-
-/* horizontal rule */
-
-hr {
-    margin: 1.5em auto;
-    border-top: 1px solid var(--border);
+ul {
+	list-style: square;
+	padding-left: 1.2em;
 }
-
-
-/* 列表 */
-
-li>ol,
-li>ul {
-    margin: 0 0;
-}
-
-li p.first {
-    display: inline-block;
-}
-
-ul,
 ol {
-    padding-left: 2rem;
+	padding-left: 1.2em;
 }
-
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
-}
-
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
-}
-
-#write ol li,
-ul li {
-    padding-left: 0.1rem;
-}
-
-
-/* 引用 */
-
 blockquote {
-    border-left: 0.3rem solid var(--border-quote);
-    padding-left: 1em;
-    font-family: var(--base-font);
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 1px solid #ddd;
+}
+code,
+pre {
+	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+	font-size: .9em;
+	background: white;
+}
+.md-fences{
+	margin-left: 1em;
+	padding-left: 1em;
+	border: 1px solid #ddd;
+	padding-bottom: 8px;
+	padding-top: 6px;
+	margin-bottom: 1.5em;
 }
 
-
-/* 表格 */
-
+a {
+	color: #2484c1;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+h1 a,
+h1 a:hover {
+	color: #333;
+	text-decoration: none;
+}
+hr {
+	color: #ddd;
+	height: 1px;
+	margin: 2em 0;
+	border-top: solid 1px #ddd;
+	border-bottom: none;
+	border-left: 0;
+	border-right: 0;
+}
+.ty-table-edit {
+	background: #ededed;
+    padding-top: 4px;
+}
 table {
-    margin-bottom: 1.25rem;
+	margin-bottom: 1.333333rem
 }
-
 table th,
 table td {
-    padding: 8px;
-    line-height: 1.25rem;
-    vertical-align: middle;
-    border: 1px solid #ddd;
+	padding: 8px;
+	line-height: 1.333333rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
 }
-
 table th {
-    font-weight: bold;
+	font-weight: bold
 }
-
 table thead th {
-    vertical-align: middle;
+	vertical-align: bottom
+}
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+	border-top: 0
+}
+table tbody+tbody {
+	border-top: 2px solid #ddd
 }
 
-table tr:nth-child(2n),
-thead {
-    background-color: #fcfcfc;
+.task-list{
+	padding:0;
 }
 
-
-/* 粗体 */
-
-#write strong {
-    padding: 0 2px;
-    font-weight: bold;
+.md-task-list-item {
+	padding-left: 1.6rem;
 }
 
-
-/* inline code */
-code,
-tt {
-    padding: 2px 4px;
-    border-radius: 0.3rem;
-    font-family: var(--monospace);
-    font-size: 0.9rem;
-    color: var(--code-color);
-    background-color: var(--inline-code-bg);
-    margin: 0 2px;
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.33333333rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #fefefe;
 }
 
-#write .md-footnote {
-    color: var(--code-color);
-    background-color: var(--inline-code-bg);
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+.md-tag {
+	color: inherit;
+	font: inherit;
+}
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+}
+#write pre.md-meta-block {
+	white-space: pre;
+	background: #f8f8f8;
+	border: 0px;
+	color: #999;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+
+	margin-bottom: 2em;
+	margin-top: -1.3333333333333rem;
+	padding-top: 26px;
+	padding-bottom: 10px;
+	line-height: 1.8em;
+	font-size: 0.9em;
+	font-size: 0.76em;
+	padding-left: 0;
+}
+.md-img-error.md-image>.md-meta{
+	vertical-align: bottom;
+}
+#write>h5.md-focus:before {
+	top: 2px;
 }
 
-
-/* highlight. */
-
-#write mark {
-    background: rgb(255, 255, 196);
-    color: var(--text-color);
+.md-toc {
+	margin-top: 40px;
 }
 
-#write del {
-    padding: 1px 2px;
+.md-toc-content {
+	padding-bottom: 20px;
+}
+
+.outline-expander:before {
+	color: inherit;
+	font-size: 14px;
+	top: auto;
+	content: "\f0da";
+	font-family: FontAwesome;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  	content: "\f0d7";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.html-for-mac #typora-sidebar {
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.typora-node .file-list-item-parent-loc, 
+.typora-node .file-list-item-time, 
+.typora-node .file-list-item-summary {
+	font-family: arial, sans-serif;
 }
 
 .md-task-list-item>input {
     margin-left: -1.3em;
+    margin-top: calc(1rem - 12px);
 }
 
-#write pre.md-meta-block {
-    padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
-    border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
+.md-mathjax-midline {
+	background: #fafafa;
 }
 
-.mathjax-block>.code-tooltip {
-    bottom: 0.375rem;
+.md-fences .code-tooltip {
+	bottom: -2em !important;
 }
 
-
-/* 图片 */
-
-.md-image>.md-meta {
-    border-radius: 3px;
-    font-family: var(--monospace);
-    padding: 2px 0 0 4px;
-    font-size: 0.9em;
-    color: inherit;
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
 }
-
-
-/* 图片靠左显示 */
-
-
-/* p .md-image:only-child {
-  width: auto;
-  text-align: left;
-  margin-left: 2rem;
-} */
-
-
-/* 写![shadow-...]() 显示图片阴影 */
-
-img[alt|="shadow"] {
-    box-shadow: var(--shadow);
-}
-
-
-/* TOC */
-
-#write a.md-toc-inner {
-    line-height: 1.6;
-    white-space: pre-line;
-    border-bottom: none;
-    color: var(--light-text-color);
-    font-size: 0.9rem;
-}
-
-.md-toc-h1 .md-toc-inner {
-    margin-left: 0;
-    font-weight: normal;
-}
-
-header,
-.context-menu,
-.megamenu-content,
-footer {
-    font-family: var(--base-font);
-}
-
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state {
-    visibility: visible;
-}
-
-.md-lang {
-    color: #b4654d;
-}
-
-.html-for-mac .context-menu {
-    --item-hover-bg-color: #e6f0fe;
-}
-
-
-/* Code fences */
-
-
-/* border, bg, font */
-
-.md-fences {
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    background: #fdfdfd !important;
-    font-size: 0.9rem;
-}
-
-
-/* 代码框阴影 */
-
-
-/* #write pre.md-fences {
-  display: block;
-  -webkit-overflow-scrolling: touch;
-  box-shadow: var(--shadow);
-} */
-
-.cm-s-inner .cm-variable {
-    color: var(--text-color);
-}
-
-.cm-s-inner {
-    padding: 0.25rem;
-    border-radius: 0.25rem;
-}
-
-.cm-s-inner.CodeMirror,
-.cm-s-inner .CodeMirror-gutters {
-    color: #3a3432 !important;
-    border: none;
-}
-
-.cm-s-inner .CodeMirror-gutters {
-    color: #6d8a88;
-}
-
-.cm-s-inner .CodeMirror-linenumber {
-    padding: 0 0.1rem 0 0.3rem;
-    color: #b8b5b4;
-}
-
-.cm-s-inner .CodeMirror-matchingbracket {
-    text-decoration: underline;
-    color: #a34e8f !important;
-}
-
-#fences-auto-suggest .active {
-    background: #ddd;
-}
-
-.cm-s-inner span.cm-comment {
-    color: #9daab6;
-}
-
-.cm-s-inner span.cm-builtin {
-    color: #0451a5;
-}
-
-
-/* language tip */
-
-#write .code-tooltip {
-    border: 1px solid var(--border);
-}
-
-.auto-suggest-container {
-    border-color: #b4b4b4;
-}
-
-.auto-suggest-container .autoComplt-hint.active {
-    background: #b4b4b4;
-    color: inherit;
-}
-
-
-/* task list */
-
-#write .md-task-list-item>input {
-    -webkit-appearance: initial;
-    display: block;
-    position: absolute;
-    border: 1px solid #b4b4b4;
-    border-radius: 0.2rem;
-    margin-top: 0.3rem;
-    height: 1rem;
-    width: 1rem;
-    transition: background 0.3s;
-}
-
-#write .md-task-list-item>input:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-#write .md-task-list-item>input:hover {
-    background: #ddd;
-}
-
-#write .md-task-list-item>input[checked]::before {
-    content: "";
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    height: 60%;
-    width: 2px;
-    transform: rotate(40deg);
-    background: #333;
-}
-
-#write .md-task-list-item>input[checked]::after {
-    content: "";
-    position: absolute;
-    top: 46%;
-    left: 25%;
-    height: 30%;
-    width: 2px;
-    transform: rotate(-40deg);
-    background: #333;
-}
-
-#write .md-task-list-item>p {
-    transition: color 0.3s, opacity 0.3s;
-}
-
-#write .md-task-list-item.task-list-done>p {
-    color: #b4b4b4;
-    text-decoration: line-through;
-}
-
-#write .md-task-list-item.task-list-done>p>.md-emoji {
-    opacity: 0.5;
-}
-
-#write .md-task-list-item.task-list-done>p>.md-link>a {
-    opacity: 0.6;
-}
-
-
-/* sidebar */
-
-#typora-sidebar,
-.typora-node #typora-sidebar {
-    box-shadow: 3px 0px 10px var(--shadow-color);
-}
-
-.sidebar-content-content {
-    font-size: 0.9rem;
-}@import "";
-
-:root {
-  --base-font: Consolas , "Ubuntu Mono", "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --title-font: var(--base-font);
-  --monospace: "Ubuntu Mono", Courier, Monospace !important;
-}
-
-/* Cesno style start */
-
-.cm-s-inner .cm-variable      {color: #f39800;}
-
-.cm-s-inner .cm-variable-3    {color: #9ed44c; font-weight: bold;}
-
-.cm-s-inner .cm-number        {color: #e95295;}
-
-.cm-s-inner .cm-keyword       {color: #bc64a4; font-weight: bold;}
-
-.cm-s-inner .cm-def           {color: #0094c8;}
-
-.cm-s-inner .cm-operator      {color: #a59aca; font-weight: bold;}
-
-/* .cm-s-inner .cm-atom          {color: #c5c56a; font-weight: bold;} */
-
-/* Cesno style end */
 
 
 </style><title>about me</title>
 </head>
-<body class='typora-export os-windows'>
-    <!-- <div class='typora-export-content' style="padding-left: 20vw; padding-right: 20vw;"> -->
-    <div class='typora-export-content' id="myWidth" >
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#aboutme">AboutMe</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一些链接">一些链接</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#学习方法论">学习方法论：</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一些技能点">一些技能点</a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><p>&nbsp;</p><p>&nbsp;</p><h2 id='aboutme'><span>AboutMe</span></h2><ul><li><span>我是 </span><code>作怪</code><span> </span><code>zuoguai</code></li><li><span>主语言是Go，会一点点Java</span></li><li><span>喜欢</span><del><span>抽烟、喝酒、烫头</span></del><span>、游戏、音乐、跑步、编程、和胡思乱想</span></li><li><span>喜欢钓鱼（习惯空军）</span></li><li><span>想培养的爱好是唱歌和读书（唱歌目前已会鬼叫，读书没有耐性）</span></li><li><span>想跑半马、想跑马拉松</span></li><li><span>琢磨着如何幽默（多希望有幽默感），人生已如此多艰，为何不开心点</span></li><li><span>喜欢有趣的人和事物</span></li><li><span>不搞个人崇拜</span></li><li><span>5KM已经能跑进22分，希望能进20分</span></li><li><span>不相信饮酒除了喝醉的其他好处</span></li><li><span>点一支烟吧，虽然我不抽</span></li><li><span>最喜欢的鼓励的话是，天生我材必有用</span></li><li><span>未来会转行当销售，现在说话已经不会结巴</span></li><li><span>缺点有很多，但一个也不会说</span></li><li><span>未完待续...想起来再写</span></li></ul><p>&nbsp;</p><h2 id='一些链接'><span>一些链接</span></h2><p><a href='https://zuoguai.github.io'><span>博客</span></a><span>：</span></p><ul><li><span>自己写的用着放心（糟心）</span></li><li><span>使用技术SpringBoot + SpringSecurity + JwtToken + MySQL + Vue + BootStrap + v-md-editor...</span></li><li><span>不要攻击我，我会自闭</span></li><li><span>记录的是一些学习笔记，还有偶尔心血来潮的小日常</span></li></ul><p><a href='https://github.com/zuoguai'><span>github主页</span></a><span>：</span></p><ul><li><span>里面没什么精彩的hh，写的项目也没有用github维护</span></li><li><span>但是不妨碍我放出来凑数呀</span></li></ul><p><a href='https://fir.alowlife.com'><span>五子棋</span></a><span>：</span></p><ul><li><span>是一个简陋的在线五子棋对战网站</span></li><li><span>使用 SpringBoot + Vue 搭建</span></li><li><span>可以和好友试一试hh</span></li></ul><p><a href='https://run.zuoguai.xyz'><span>轨迹</span></a><span>：</span></p><ul><li><span>一个网页，可视化地展示了我日常的一些跑步记录</span></li></ul><h2 id='学习方法论'><span>学习方法论：</span></h2><p><span>专注、精力、效率</span></p><ol start='' ><li><span>远离手机、关闭微信</span></li><li><span>尽量关闭音乐（非常难）</span></li><li><span>休息充足</span></li><li><span>避免碎片化时间，规划一大段时间进行学习</span></li><li><span>一定要去图书馆、教室</span></li></ol><p><span>我崇尚减少</span><a style="color:red"><span>干扰源</span></a><span>在一</span><a style="color:red"><span>大段时间</span></a><span>内</span><a style="color:red"><span>专注</span></a><span>高效率地学习</span><a style="color:red"><span>有相关联</span></a><span>的东西</span></p><p><span>例如：花费</span><a style="color:red"><span>连续</span></a><span>的3-5个钟画个思维导图、</span><a style="color:red"><span>连续</span></a><span>的2-3个钟学MySQL索引与InnoDB数据结构、</span><a style="color:red"><span>连续</span></a><span>的几个钟学HTTP/HTTPS</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='一些技能点'><span>一些技能点</span></h2><ol start='' ><li><strong><span>熟悉Go语言：</span></strong><span> 熟悉基础语法。了解string、slice、channel、map等底层实现，以及协程调度、垃圾回收等核心原理。了解Java语言开发（了解基本语法，使用过相关框架）</span></li><li><strong><span>计算机网络：</span></strong><span> 熟悉TCP/IP四层网络模型。了解应用层HTTP和HTTPS原理，运输层TCP三次握手、流量控制以及四次挥手流程，网络层IP协议工作原理等</span></li><li><strong><span>数据结构与算法：</span></strong><span> 熟悉链表，栈，队列，二叉树等常用数据结构。熟悉快速排序，归并排序以及二分查找等算法。了解一些双指针，动态规划，贪心常见算法</span></li><li><strong><span>MySQL：</span></strong><span> 熟练使用常用的SQL语言操作数据库。了解B+Tree结构和常见索引优化方案，事务隔离级别与锁机制，InnoDB的MVCC实现原理，binlog日志和InnoDB缓存Buffer Pool工作流程</span></li><li><strong><span>Redis：</span></strong><span> 熟练使用Redis操作。了解Redis五种核心数据结构实现，RDB与AOF两种持久化，主从哨兵以及集群模式，缓存雪崩/击穿/穿透等问题的解决，了解Redis分布式锁setNx实现</span></li><li><strong><span>操作系统：</span></strong><span> 在学了在学了</span></li><li><strong><span>消息队列：</span></strong><span> 在学在学了</span></li><li><strong><span>rpc：</span></strong><span> 在学了在学了</span></li><li><strong><span>架构&amp;分布式：</span></strong><span> 在学了在学了</span></li><li><span>前端：了解Vue框架、BootStrap组件库、Ajax的简单使用，成功运用到个人项目</span></li><li><span>Linux：了解一些基础命令和简单的ssh、tmux、vim操作，成功部署个人项目 </span></li><li><span>其他：了解SpringBoot、MyBatisPlus、jwtToken开发，成功开发个人项目 </span></li></ol><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
 
-<div id='write'  class=''>
-    <p>&nbsp;</p><p>&nbsp;</p><h2 id='aboutme'><span>AboutMe</span></h2><ul><li><p><span>我是 </span><code>作怪</code><span> </span><code>zuoguai</code></p></li><li><p><span>主语言是Go，会一点点Java</span></p></li><li><p><span>喜欢</span><del><span>抽烟、喝酒、烫头</span></del><span>、游戏、音乐、跑步、编程、和胡思乱想</span></p></li><li><p><span>喜欢钓鱼（习惯空军）</span></p></li><li><p><span>想培养的爱好是唱歌和读书（唱歌目前已会鬼叫，读书没有耐性）</span></p></li><li><p><span>想跑半马、想跑马拉松</span></p></li><li><p><span>琢磨着如何幽默（多希望有幽默感），人生已如此多艰，为何不开心点</span></p></li><li><p><span>喜欢有趣的人和事物</span></p></li><li><p><span>不搞个人崇拜</span></p></li><li><p><span>5KM已经能跑进22分，希望能进20分</span></p></li><li><p><span>不相信饮酒除了喝醉的其他好处</span></p></li><li><p><span>点一支烟吧，虽然我不抽</span></p></li><li><p><span>最喜欢的鼓励的话是，天生我材必有用</span></p></li><li><p><span>未来会转行当销售，现在说话已经不会结巴</span></p></li><li><p><span>缺点有很多，但一个也不会说</span></p></li><li><p><span>未完待续...想起来再写</span></p></li></ul><p>&nbsp;</p><h2 id='一些链接'><span>一些链接</span></h2><p><a href='https://zuoguai.github.io'><span>博客</span></a><span>：</span></p><ul><li><p><span>自己写的用着放心（糟心）</span></p></li><li><p><span>使用技术SpringBoot + SpringSecurity + JwtToken + MySQL + Vue + BootStrap + v-md-editor...</span></p></li><li><p><span>不要攻击我，我会自闭</span></p></li><li><p><span>记录的是一些学习笔记，还有偶尔心血来潮的小日常</span></p></li></ul><p><a href='https://github.com/zuoguai'><span>github主页</span></a><span>：</span></p><ul><li><p><span>里面没什么精彩的hh，写的项目也没有用github维护</span></p></li><li><p><span>但是不妨碍我放出来凑数呀</span></p></li></ul><p><a href='https://fir.alowlife.com'><span>五子棋</span></a><span>：</span></p><ul><li><p><span>是一个简陋的在线五子棋对战网站</span></p></li><li><p><span>使用 SpringBoot + Vue 搭建</span></p></li><li><p><span>可以和好友试一试hh</span></p></li></ul><p><a href='https://run.zuoguai.xyz'><span>轨迹</span></a><span>：</span></p><ul><li><p><span>一个网页，可视化地展示了我日常的一些跑步记录</span></p></li></ul><h2 id='学习方法论'><span>学习方法论：</span></h2><p><span>专注、精力、效率</span></p><ol start='' ><li><p><span>远离手机、关闭微信</span></p></li><li><p><span>尽量关闭音乐（非常难）</span></p></li><li><p><span>休息充足</span></p></li><li><p><span>避免碎片化时间，规划一大段时间进行学习</span></p></li><li><p><span>一定要去图书馆、教室</span></p></li></ol><p><span>我崇尚减少</span><a style="color:red"><span>干扰源</span></a><span>在一</span><a style="color:red"><span>大段时间</span></a><span>内</span><a style="color:red"><span>专注</span></a><span>高效率地学习</span><a style="color:red"><span>有相关联</span></a><span>的东西</span></p><p><span>例如：花费</span><a style="color:red"><span>连续</span></a><span>的3-5个钟画个思维导图、</span><a style="color:red"><span>连续</span></a><span>的2-3个钟学MySQL索引与InnoDB数据结构、</span><a style="color:red"><span>连续</span></a><span>的几个钟学HTTP/HTTPS</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='一些技能点'><span>一些技能点</span></h2><ol start='' ><li><p><strong><span>熟悉Go语言：</span></strong><span> 熟悉基础语法。了解string、slice、channel、map等底层实现，以及协程调度、垃圾回收等核心原理。了解Java语言开发（了解基本语法，使用过相关框架）</span></p></li><li><p><strong><span>计算机网络：</span></strong><span> 熟悉TCP/IP四层网络模型。了解应用层HTTP和HTTPS原理，运输层TCP三次握手、流量控制以及四次挥手流程，网络层IP协议工作原理等</span></p></li><li><p><strong><span>数据结构与算法：</span></strong><span> 熟悉链表，栈，队列，二叉树等常用数据结构。熟悉快速排序，归并排序以及二分查找等算法。了解一些双指针，动态规划，贪心常见算法</span></p></li><li><p><strong><span>MySQL：</span></strong><span> 熟练使用常用的SQL语言操作数据库。了解B+Tree结构和常见索引优化方案，事务隔离级别与锁机制，InnoDB的MVCC实现原理，binlog日志和InnoDB缓存Buffer Pool工作流程</span></p></li><li><p><strong><span>Redis：</span></strong><span> 熟练使用Redis操作。了解Redis五种核心数据结构实现，RDB与AOF两种持久化，主从哨兵以及集群模式，缓存雪崩/击穿/穿透等问题的解决，了解Redis分布式锁setNx实现</span></p></li><li><p><strong><span>操作系统：</span></strong><span> 在学了在学了</span></p></li><li><p><strong><span>消息队列：</span></strong><span> 在学在学了</span></p></li><li><p><strong><span>rpc：</span></strong><span> 在学了在学了</span></p></li><li><p><strong><span>架构&amp;分布式：</span></strong><span> 在学了在学了</span></p></li><li><p><span>前端：了解Vue框架、BootStrap组件库、Ajax的简单使用，成功运用到个人项目</span></p></li><li><p><span>Linux：了解一些基础命令和简单的ssh、tmux、vim操作，成功部署个人项目 </span></p></li><li><p><span>其他：了解SpringBoot、MyBatisPlus、jwtToken开发，成功开发个人项目 </span></p></li></ol><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
-</body>
+<script>(function(){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script></body>
 </html>
-<script>
-    window.onload = function(){
-        var div = document.getElementById("myWidth");
-        if (window.innerWidth > 1000){
-            console.log()
-            div.style.margin = 20 + "%"
-            div.style.maxWidth = 1200 + "px"
-        }
-    }
-</script>
